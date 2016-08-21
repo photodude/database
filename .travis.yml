@@ -34,6 +34,10 @@ matrix:
   allow_failures:
     - php: hhvm
 
+services:
+  - mysql
+  - postgresql
+
 before_script:
   - composer self-update
   - composer update $COMPOSER_FLAGS
