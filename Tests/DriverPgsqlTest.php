@@ -456,6 +456,7 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
+	 * @group DriverPgsqlTest
 	 */
 	public function testGetVersion()
 	{
@@ -471,6 +472,7 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
+	 * @group DriverPgsqlTest
 	 */
 	public function testInsertid()
 	{
