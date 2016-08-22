@@ -928,6 +928,7 @@ class DriverPostgresqlTest extends DatabasePostgresqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
+	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionCommit()
 	{
