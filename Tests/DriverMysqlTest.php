@@ -19,6 +19,7 @@ class DriverMysqlTest extends DatabaseMysqlCase
 	 * @return  array
 	 *
 	 * @since   1.0
+	 * @group  MysqliTest
 	 */
 	public function dataTestEscape()
 	{
