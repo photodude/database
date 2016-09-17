@@ -658,7 +658,6 @@ class DriverMysqliTest extends DatabaseMysqliCase
 	 * @return  void
 	 *
 	 * @since   1.0
-	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionCommit()
 	{
@@ -695,7 +694,6 @@ class DriverMysqliTest extends DatabaseMysqliCase
 	 *
 	 * @since        1.0
 	 * @dataProvider dataTestTransactionRollback
-	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionRollback($toSavepoint, $tupleCount)
 	{
