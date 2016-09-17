@@ -10,6 +10,7 @@ namespace Joomla\Database\Tests;
  * Test class for Joomla\Database\Iterator\Mysqli.
  *
  * @since  1.0
+ * @group  MysqliTest
  */
 class IteratorMysqliTest extends DatabaseMysqliCase
 {
