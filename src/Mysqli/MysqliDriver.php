@@ -885,7 +885,7 @@ class MysqliDriver extends DatabaseDriver
 		{
 			if ($this->executeUnpreparedQuery('START TRANSACTION'))
 			{
-				$this->transactionDepth = 0;
+				$this->transactionDepth = 1;
 			}
 
 			return;
@@ -897,6 +897,9 @@ class MysqliDriver extends DatabaseDriver
 		{
 			$this->transactionDepth++;
 		}
+
+		// Reset auto commit
+		$conn->autocommit(TRUE);
 	}
 
 	/**
