@@ -603,6 +603,7 @@ class DriverMysqliTest extends DatabaseMysqliCase
 	 * @return  void
 	 *
 	 * @since   1.0
+	 * @group DriverPgsqlTest
 	 */
 	public function testExecutePreparedStatement()
 	{
