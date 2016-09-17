@@ -10,6 +10,7 @@ namespace Joomla\Database\Tests;
  * Test class for Joomla\Database\Mysqli\MysqliDriver.
  *
  * @since  1.0
+ * @group  MysqliTest
  */
 class DriverMysqliTest extends DatabaseMysqliCase
 {
