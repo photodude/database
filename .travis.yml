@@ -47,5 +47,5 @@ before_script:
   - psql -d joomla_ut -a -f Tests/Stubs/postgresql.sql
 
 script:
-  - vendor/bin/phpunit --debug --exclude-group 'DriverPgsqlTest' --testsuite 'Mysqli` --configuration phpunit.travis.xml
+  - vendor/bin/phpunit --debug --exclude-group 'DriverPgsqlTest' --testsuite 'Mysqli' --configuration phpunit.travis.xml
   - if [ "$RUN_PHPCS" == "yes" ]; then vendor/bin/phpcs -p --report=full --extensions=php --standard=.travis/phpcs/Joomla/ruleset.xml src/; fi;
