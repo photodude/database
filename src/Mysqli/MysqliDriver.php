@@ -897,6 +897,8 @@ class MysqliDriver extends DatabaseDriver
 		{
 			$this->transactionDepth++;
 		}
+		
+		$this->transactionDepth++;
 	}
 
 	/**
