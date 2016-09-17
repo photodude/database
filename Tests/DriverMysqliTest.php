@@ -694,6 +694,7 @@ class DriverMysqliTest extends DatabaseMysqliCase
 	 *
 	 * @since        1.0
 	 * @dataProvider dataTestTransactionRollback
+	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionRollback($toSavepoint, $tupleCount)
 	{
