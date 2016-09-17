@@ -899,7 +899,7 @@ class MysqliDriver extends DatabaseDriver
 		}
 
 		// Reset auto commit
-		$conn->autocommit(TRUE);
+		$this->connection->autocommit(TRUE);
 	}
 
 	/**
