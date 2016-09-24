@@ -942,7 +942,7 @@ class PostgresqlDriver extends DatabaseDriver
 	{
 		$this->connect();
 
-		$this->freeResult();
+		//$this->freeResult();
 
 		if (is_string($query))
 		{
