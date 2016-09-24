@@ -757,7 +757,7 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 		$query = self::$driver->getQuery(true);
 		$query->insert('#__dbtest')
 			->columns('id,title,start_date, description')
-			->values("5, 'testTitle','1970-01-01','testDescription'")
+			->values("5, 'testTitleQuery','1970-01-01','testDescriptionQuery'")
 			->returning('id');
 
 		self::$driver->setQuery($query);
@@ -897,7 +897,7 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 		$queryIns = self::$driver->getQuery(true);
 		$queryIns->insert('#__dbtest')
 			->columns('id,title,start_date,description')
-			->values("6, 'testTitle','1970-01-01','testDescription'");
+			->values("6, 'testTitleTransactionCommit','1970-01-01','testDescriptionTransactionCommit'");
 
 		self::$driver->setQuery($queryIns)->execute();
 
@@ -911,7 +911,7 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 		self::$driver->setQuery($queryCheck);
 		$result = self::$driver->loadRow();
 
-		$expected = array(6, 'testTitle', '1970-01-01 00:00:00', 'testDescription');
+		$expected = array(6, 'testTitleTransactionCommit', '1970-01-01 00:00:00', 'testDescriptionTransactionCommit');
 
 		$this->assertThat($result, $this->equalTo($expected), __LINE__);
 	}
@@ -986,7 +986,7 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 		$queryIns = self::$driver->getQuery(true);
 		$queryIns->insert('#__dbtest')
 			->columns('id,title,start_date,description')
-			->values("6, 'testTitle','1970-01-01','testDescription'");
+			->values("6, 'testTitleTransactionStart','1970-01-01','testDescriptionTransactionStart'");
 
 		self::$driver->setQuery($queryIns)->execute();
 
