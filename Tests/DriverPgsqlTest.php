@@ -982,11 +982,12 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 */
 	public function testTransactionStart()
 	{
+		self::$driver->transactionRollback();
 		self::$driver->transactionStart();
 		$queryIns = self::$driver->getQuery(true);
 		$queryIns->insert('#__dbtest')
 			->columns('id,title,start_date,description')
-			->values("6, 'testTitleTransactionStart','1970-01-01','testDescriptionTransactionStart'");
+			->values("6, 'testTitleTransactionStartPgsql','1970-01-01','testDescriptionTransactionStartPgsql'");
 
 		self::$driver->setQuery($queryIns)->execute();
 
