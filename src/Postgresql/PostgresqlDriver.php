@@ -1118,7 +1118,7 @@ class PostgresqlDriver extends DatabaseDriver
 
 		if (!$asSavepoint || !$this->transactionDepth)
 		{
-			if ($this->setQuery('START TRANSACTION')->execute())
+			if ($this->setQuery('BEGIN TRANSACTION')->execute())
 			{
 				$this->transactionDepth = 1;
 			}
