@@ -1018,16 +1018,15 @@ class DriverPostgresqlTest extends DatabasePostgresqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
-	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionStart()
 	{
-		self::$driver->transactionRollback();
+		//self::$driver->transactionRollback();
 		self::$driver->transactionStart();
 		$queryIns = self::$driver->getQuery(true);
 		$queryIns->insert('#__dbtest')
 			->columns('id,title,start_date,description')
-			->values("6, 'testTitle','1970-01-01','testDescription'");
+			->values("6, 'testTitleTransactionStartPostgresql','1970-01-01','testDescriptionTransactionStartPostgresql'");
 
 		self::$driver->setQuery($queryIns)->execute();
 
