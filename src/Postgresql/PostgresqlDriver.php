@@ -754,26 +754,28 @@ class PostgresqlDriver extends DatabaseDriver
 		$this->errorNum = 0;
 		$this->errorMsg = '';
 
-		var_dump($sql);
-		echo var_dump($sql);
 		// Bind the variables
 		if ($this->sql instanceof PreparableInterface)
 		{
+			echo 'this is a PreparableInterface';
 			$bounded =& $this->sql->getBounded();
 
 			if (count($bounded))
 			{
+				echo 'bounded execution';
 				// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 				$this->cursor = @pg_execute($this->connection, $this->queryName . $count, array_values($bounded));
 			}
 			else
 			{
+				echo 'NO bounds for Execution';
 				// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 				$this->cursor = @pg_query($this->connection, $sql);
 			}
 		}
 		else
 		{
+			echo 'NOT a PreparableInterface';
 			// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 			$this->cursor = @pg_query($this->connection, $sql);
 		}
