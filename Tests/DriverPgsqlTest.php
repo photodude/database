@@ -982,7 +982,6 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 */
 	public function testTransactionStart()
 	{
-		self::$driver->transactionRollback();
 		self::$driver->transactionStart();
 		$queryIns = self::$driver->getQuery(true);
 		$queryIns->insert('#__dbtest')
