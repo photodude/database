@@ -754,6 +754,8 @@ class PostgresqlDriver extends DatabaseDriver
 		$this->errorNum = 0;
 		$this->errorMsg = '';
 
+		var_dump($sql);
+		echo var_dump($sql);
 		// Bind the variables
 		if ($this->sql instanceof PreparableInterface)
 		{
