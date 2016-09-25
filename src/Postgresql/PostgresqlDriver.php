@@ -771,6 +771,7 @@ class PostgresqlDriver extends DatabaseDriver
 				echo 'NO bounds for Execution';
 				// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 				$this->cursor = @pg_query($this->connection, $sql);
+				var_dump($this->cursor);
 			}
 		}
 		else
