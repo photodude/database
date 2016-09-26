@@ -1125,6 +1125,7 @@ class DriverPostgresqlTest extends DatabasePostgresqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
+	 * @group   PostgresqlTests
 	 */
 	public function testExecute()
 	{
