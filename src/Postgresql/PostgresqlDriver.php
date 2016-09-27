@@ -816,7 +816,7 @@ class PostgresqlDriver extends DatabaseDriver
 				}
 
 				// Since we were able to reconnect, run the query again.
-				return $this->execute();
+				//return $this->execute();
 			}
 			else
 			// The server was not disconnected.
