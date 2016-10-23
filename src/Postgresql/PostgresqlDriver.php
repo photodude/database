@@ -356,7 +356,8 @@ class PostgresqlDriver extends DatabaseDriver
 	{
 		$this->connect();
 
-		return pg_num_rows((int) $cur ? $cur : $this->cursor);
+		//return pg_num_rows((int) $cur ? $cur : $this->cursor);
+		return pg_affected_rows((int) $cur ? $cur : $this->cursor);
 	}
 
 	/**
