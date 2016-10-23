@@ -162,7 +162,6 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
-	 * @group DriverPgsqlTest
 	 */
 	public function testConnected()
 	{
@@ -891,7 +890,6 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
-	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionCommit()
 	{
@@ -928,7 +926,6 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 *
 	 * @since        1.0
 	 * @dataProvider dataTestTransactionRollback
-	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionRollback($toSavepoint, $tupleCount)
 	{
@@ -982,7 +979,6 @@ class DriverPgsqlTest extends DatabasePgsqlCase
 	 * @return  void
 	 *
 	 * @since   1.0
-	 * @group DriverPgsqlTest
 	 */
 	public function testTransactionStart()
 	{
