@@ -178,7 +178,6 @@ abstract class DatabaseIterator implements \Countable, \Iterator
 	 */
 	public function rewind()
 	{
-		$this->key = 0;
 	}
 
 	/**
