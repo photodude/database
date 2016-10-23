@@ -702,7 +702,7 @@ abstract class PdoDriver extends DatabaseDriver
 		}
 
 		$sql = $this->replacePrefix((string) $query);
-	
+
 		$this->prepared = $this->connection->prepare($sql, $driverOptions);
 
 		// Store reference to the DatabaseQuery instance:
