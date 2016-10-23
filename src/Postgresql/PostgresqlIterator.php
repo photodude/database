@@ -27,7 +27,8 @@ class PostgresqlIterator extends DatabaseIterator
 	 */
 	public function count()
 	{
-		return pg_num_rows($this->cursor);
+		//return pg_num_rows($this->cursor);
+		return pg_affected_rows($this->cursor);
 	}
 
 	/**
