@@ -703,7 +703,15 @@ abstract class PdoDriver extends DatabaseDriver
 
 		$sql = $this->replacePrefix((string) $query);
 
-		$this->prepared = $this->connection->prepare($sql, $driverOptions);
+		if (!empty($driverOptions))
+		{
+			$this->prepared = $this->connection->prepare($sql, $driverOptions);
+		}
+		else
+		{
+			$driverOptions = array(\PDO::ATTR_CURSOR => \PDO::CURSOR_SCROLL)
+			$this->prepared = $this->connection->prepare($sql, $driverOptions);
+		}
 
 		// Store reference to the DatabaseQuery instance:
 		parent::setQuery($query, $offset, $limit);
