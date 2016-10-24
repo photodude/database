@@ -297,7 +297,6 @@ abstract class PdoDriver extends DatabaseDriver
 				$this->options['password'],
 				$this->options['driverOptions']
 			);
-			$this->connection->setAttribute(\PDO::ATTR_AUTOCOMMIT, false);
 		}
 		catch (\PDOException $e)
 		{
@@ -784,6 +783,7 @@ abstract class PdoDriver extends DatabaseDriver
 
 		if (!$asSavepoint || !$this->transactionDepth)
 		{
+			$this->connection->setAttribute(\PDO::ATTR_AUTOCOMMIT, false);
 			$this->connection->beginTransaction();
 		}
 
