@@ -297,6 +297,7 @@ abstract class PdoDriver extends DatabaseDriver
 				$this->options['password'],
 				$this->options['driverOptions']
 			);
+			$this->connection->setAttribute(\PDO::ATTR_AUTOCOMMIT, false);
 		}
 		catch (\PDOException $e)
 		{
