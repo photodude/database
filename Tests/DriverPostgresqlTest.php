@@ -1054,7 +1054,7 @@ class DriverPostgresqlTest extends DatabasePostgresqlCase
 	 */
 	public function testReleaseTransactionSavepoint()
 	{
-		self::$driver->transactionRollback();
+		//self::$driver->transactionRollback();
 		self::$driver->transactionStart();
 
 		/* release a nonexistent savepoint will throw an exception */
