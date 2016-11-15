@@ -750,7 +750,6 @@ class PostgresqlDriver extends DatabaseDriver
 				'{sql}',
 				array('sql' => $sql, 'category' => 'databasequery', 'trace' => debug_backtrace())
 			);
-			var_dump($this->log);
 		}
 
 		// Reset the error values.
