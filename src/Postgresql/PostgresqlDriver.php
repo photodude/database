@@ -739,6 +739,7 @@ class PostgresqlDriver extends DatabaseDriver
 
 		// Increment the query counter.
 		$this->count++;
+		$this->debug = true;
 
 		// If debugging is enabled then let's log the query.
 		if ($this->debug)
@@ -749,6 +750,7 @@ class PostgresqlDriver extends DatabaseDriver
 				'{sql}',
 				array('sql' => $sql, 'category' => 'databasequery', 'trace' => debug_backtrace())
 			);
+			var_dump($this->log);
 		}
 
 		// Reset the error values.
