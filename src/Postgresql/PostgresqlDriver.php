@@ -739,7 +739,6 @@ class PostgresqlDriver extends DatabaseDriver
 
 		// Increment the query counter.
 		$this->count++;
-		$this->debug = true;
 
 		// If debugging is enabled then let's log the query.
 		if ($this->debug)
@@ -756,6 +755,9 @@ class PostgresqlDriver extends DatabaseDriver
 		$this->errorNum = 0;
 		$this->errorMsg = '';
 
+		var_dump("this->sql: " . $this->sql instanceof PreparableInterface);
+		var_dump("sql: " . $sql instanceof PreparableInterface);
+		
 		// Bind the variables
 		if ($this->sql instanceof PreparableInterface)
 		{
@@ -780,7 +782,7 @@ class PostgresqlDriver extends DatabaseDriver
 		{
 			echo 'NOT a PreparableInterface';
 			// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
-			$this->cursor = @pg_query($this->connection, $sql);
+			$this->cursor = pg_query($this->connection, $sql);
 		}
 
 		// If an error occurred handle it.
