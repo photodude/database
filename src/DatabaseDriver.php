@@ -137,7 +137,7 @@ abstract class DatabaseDriver implements DatabaseInterface, Log\LoggerAwareInter
 	 * @var    mixed
 	 * @since  1.0
 	 */
-	protected $sql;
+	protected $sql = null;
 
 	/**
 	 * The common database table prefix.
