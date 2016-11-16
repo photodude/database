@@ -375,6 +375,8 @@ class PostgresqlDriver extends DatabaseDriver
 	{
 		if ($new)
 		{
+			$this->sql = null;
+
 			// Make sure we have a query class for this driver.
 			if (!class_exists('\\Joomla\\Database\\Postgresql\\PostgresqlQuery'))
 			{
