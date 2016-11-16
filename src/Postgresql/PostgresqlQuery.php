@@ -300,6 +300,8 @@ class PostgresqlQuery extends DatabaseQuery implements LimitableInterface, Prepa
 	 */
 	public function clear($clause = null)
 	{
+		$this->sql = null;
+
 		switch ($clause)
 		{
 			case 'limit':
