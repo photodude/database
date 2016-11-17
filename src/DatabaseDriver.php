@@ -744,10 +744,6 @@ abstract class DatabaseDriver implements DatabaseInterface, Log\LoggerAwareInter
 			{
 				$this->serverType = 'postgresql';
 			}
-			elseif (stristr($name, 'pgsql') !== false)
-			{
-				$this->serverType = 'postgresql';
-			}
 			elseif (stristr($name, 'oracle') !== false)
 			{
 				$this->serverType = 'oracle';
