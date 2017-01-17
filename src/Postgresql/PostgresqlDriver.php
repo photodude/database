@@ -757,32 +757,24 @@ class PostgresqlDriver extends DatabaseDriver
 		$this->errorNum = 0;
 		$this->errorMsg = '';
 
-		var_dump("this->sql: " . $this->sql instanceof PreparableInterface);
-		var_dump("sql: " . $sql instanceof PreparableInterface);
-		
 		// Bind the variables
 		if ($this->sql instanceof PreparableInterface)
 		{
-			echo 'this is a PreparableInterface';
 			$bounded =& $this->sql->getBounded();
 
 			if (count($bounded))
 			{
-				echo 'bounded execution';
 				// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 				$this->cursor = @pg_execute($this->connection, $this->queryName . $count, array_values($bounded));
 			}
 			else
 			{
-				echo 'NO bounds for Execution';
 				// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 				$this->cursor = @pg_query($this->connection, $sql);
-				var_dump($this->cursor);
 			}
 		}
 		else
 		{
-			echo 'NOT a PreparableInterface';
 			// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 			$this->cursor = pg_query($this->connection, $sql);
 		}
@@ -827,8 +819,12 @@ class PostgresqlDriver extends DatabaseDriver
 			else
 			// The server was not disconnected.
 			{
-				// Get the error number and message.
-				$this->errorNum = (int) pg_result_error_field($this->cursor, PGSQL_DIAG_SQLSTATE);
+				// Only get an error number if we have a non-boolean false cursor, otherwise use default 0
+				if ($this->cursor !== false)
+				{
+					$this->errorNum = (int) pg_result_error_field($this->cursor, PGSQL_DIAG_SQLSTATE);
+				}
+
 				$this->errorMsg = pg_last_error($this->connection);
 
 				// Throw the normal query exception.
@@ -953,7 +949,7 @@ class PostgresqlDriver extends DatabaseDriver
 	{
 		$this->connect();
 
-		//$this->freeResult();
+		$this->freeResult();
 
 		if (is_string($query))
 		{
