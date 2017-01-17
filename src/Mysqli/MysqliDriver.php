@@ -897,9 +897,6 @@ class MysqliDriver extends DatabaseDriver
 		{
 			$this->transactionDepth++;
 		}
-
-		// Reset auto commit
-		$this->connection->autocommit(true);
 	}
 
 	/**
