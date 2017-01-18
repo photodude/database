@@ -356,19 +356,7 @@ class PostgresqlDriver extends DatabaseDriver
 	{
 		$this->connect();
 
-		if ($this->cursor !== false || $cur !== false)
-		{
-			if (pg_num_rows((int) $cur ? $cur : $this->cursor) > 0)
-			{
-				return pg_num_rows((int) $cur ? $cur : $this->cursor);
-			}
-			elseif (pg_affected_rows((int) $cur ? $cur : $this->cursor) > 0)
-			{
-				return pg_affected_rows((int) $cur ? $cur : $this->cursor);
-			}
-		}
-
-		return 0;
+		return pg_num_rows((int) $cur ? $cur : $this->cursor);
 	}
 
 	/**
@@ -386,8 +374,6 @@ class PostgresqlDriver extends DatabaseDriver
 	{
 		if ($new)
 		{
-			$this->sql = null;
-
 			// Make sure we have a query class for this driver.
 			if (!class_exists('\\Joomla\\Database\\Postgresql\\PostgresqlQuery'))
 			{
@@ -787,7 +773,7 @@ class PostgresqlDriver extends DatabaseDriver
 		else
 		{
 			// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
-			$this->cursor = pg_query($this->connection, $sql);
+			$this->cursor = @pg_query($this->connection, $sql);
 		}
 
 		// If an error occurred handle it.
@@ -1136,7 +1122,7 @@ class PostgresqlDriver extends DatabaseDriver
 
 		if (!$asSavepoint || !$this->transactionDepth)
 		{
-			if ($this->setQuery('BEGIN TRANSACTION')->execute())
+			if ($this->setQuery('START TRANSACTION')->execute())
 			{
 				$this->transactionDepth = 1;
 			}
